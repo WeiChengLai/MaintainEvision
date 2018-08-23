@@ -1,0 +1,163 @@
+﻿@using X.PagedList.Mvc
+@using X.PagedList
+@using X.PagedList.Mvc.Bootstrap4
+@model IEnumerable<MaintainEvision.Models.CodeReason>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Reason Code</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SysId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AllowShip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProcessType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChtDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChsDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Outsourcing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DefaultUsed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DefaultEcn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequireRemark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequireRelabel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequireSwapInfo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequireCustSn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequireMfgSn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequireBios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequierAttn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModiDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModiUser)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SysId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllowShip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcessType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChtDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChsDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Outsourcing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefaultUsed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefaultEcn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequireRemark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequireRelabel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequireSwapInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequireCustSn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequireMfgSn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequireBios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequierAttn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModiDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModiUser)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager(Model as IPagedList, (p) => Url.Action("Index", new { Page = p }), Bootstrap4PagedListRenderOptions.Default)

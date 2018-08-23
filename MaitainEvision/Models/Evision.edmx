@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EvisionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CodeError">
+          <Key>
+            <PropertyRef Name="Vender" />
+            <PropertyRef Name="ProductType" />
+            <PropertyRef Name="ErrorCode" />
+            <PropertyRef Name="CodeType" />
+          </Key>
+          <Property Name="SysId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vender" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductType" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ErrorCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CodeType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="EngDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="ChtDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="ChsDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="Duty" Type="nvarchar" MaxLength="10" />
+          <Property Name="Active" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModiDate" Type="datetime" />
+          <Property Name="ModiUser" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CodeReason">
+          <Key>
+            <PropertyRef Name="Vender" />
+            <PropertyRef Name="ProductType" />
+            <PropertyRef Name="ReasonCode" />
+            <PropertyRef Name="CodeType" />
+          </Key>
+          <Property Name="SysId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vender" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductType" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ReasonCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CodeType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AllowShip" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProcessType" Type="nvarchar" MaxLength="20" />
+          <Property Name="EngDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="ChtDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="ChsDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="Duty" Type="nvarchar" MaxLength="10" />
+          <Property Name="Outsourcing" Type="nvarchar" MaxLength="2" />
+          <Property Name="DefaultUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="DefaultEcn" Type="nvarchar" MaxLength="10" />
+          <Property Name="RequireRemark" Type="nvarchar" MaxLength="10" />
+          <Property Name="RequireRelabel" Type="nvarchar" MaxLength="10" />
+          <Property Name="RequireSwapInfo" Type="nvarchar" MaxLength="10" />
+          <Property Name="RequireCustSn" Type="nvarchar" MaxLength="10" />
+          <Property Name="RequireMfgSn" Type="nvarchar" MaxLength="10" />
+          <Property Name="RequireBios" Type="nvarchar" MaxLength="10" />
+          <Property Name="RequierAttn" Type="nvarchar" MaxLength="10" />
+          <Property Name="Active" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModiDate" Type="datetime" />
+          <Property Name="ModiUser" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="UserId">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Company" />
+          </Key>
+          <Property Name="SysId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="EngName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChtName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChsName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+          <Property Name="Active" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModiDate" Type="datetime" />
+          <Property Name="ModiUser" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="UserSystem">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="System" />
+            <PropertyRef Name="Role" />
+            <PropertyRef Name="Region" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="System" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="10" />
+          <Property Name="ModiDate" Type="datetime" />
+          <Property Name="ModiUser" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="EvisionModelStoreContainer">
+          <EntitySet Name="CodeError" EntityType="Self.CodeError" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CodeReason" EntityType="Self.CodeReason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserId" EntityType="Self.UserId" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSystem" EntityType="Self.UserSystem" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EvisionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CodeError">
+          <Key>
+            <PropertyRef Name="Vender" />
+            <PropertyRef Name="ProductType" />
+            <PropertyRef Name="ErrorCode" />
+            <PropertyRef Name="CodeType" />
+          </Key>
+          <Property Name="SysId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ErrorCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CodeType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EngDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ChtDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ChsDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Duty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModiDate" Type="DateTime" Precision="3" />
+          <Property Name="ModiUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CodeReason">
+          <Key>
+            <PropertyRef Name="Vender" />
+            <PropertyRef Name="ProductType" />
+            <PropertyRef Name="ReasonCode" />
+            <PropertyRef Name="CodeType" />
+          </Key>
+          <Property Name="SysId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReasonCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CodeType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AllowShip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProcessType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EngDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ChtDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ChsDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Duty" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Outsourcing" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultEcn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RequireRemark" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RequireRelabel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RequireSwapInfo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RequireCustSn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RequireMfgSn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RequireBios" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RequierAttn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModiDate" Type="DateTime" Precision="3" />
+          <Property Name="ModiUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserId">
+          <Key>
+            <PropertyRef Name="UserId1" />
+            <PropertyRef Name="Company" />
+          </Key>
+          <Property Name="SysId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EngName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChtName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModiDate" Type="DateTime" Precision="3" />
+          <Property Name="ModiUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserSystem">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="System" />
+            <PropertyRef Name="Role" />
+            <PropertyRef Name="Region" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="System" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ModiDate" Type="DateTime" Precision="3" />
+          <Property Name="ModiUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="EvisionConnectionString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CodeError" EntityType="Self.CodeError" />
+          <EntitySet Name="CodeReason" EntityType="Self.CodeReason" />
+          <EntitySet Name="UserId" EntityType="Self.UserId" />
+          <EntitySet Name="UserSystem" EntityType="Self.UserSystem" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EvisionModelStoreContainer" CdmEntityContainer="EvisionConnectionString">
+          <EntitySetMapping Name="CodeError">
+            <EntityTypeMapping TypeName="EvisionModel.CodeError">
+              <MappingFragment StoreEntitySet="CodeError">
+                <ScalarProperty Name="SysId" ColumnName="SysId" />
+                <ScalarProperty Name="Vender" ColumnName="Vender" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ErrorCode" ColumnName="ErrorCode" />
+                <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+                <ScalarProperty Name="EngDesc" ColumnName="EngDesc" />
+                <ScalarProperty Name="ChtDesc" ColumnName="ChtDesc" />
+                <ScalarProperty Name="ChsDesc" ColumnName="ChsDesc" />
+                <ScalarProperty Name="Duty" ColumnName="Duty" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="ModiDate" ColumnName="ModiDate" />
+                <ScalarProperty Name="ModiUser" ColumnName="ModiUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeReason">
+            <EntityTypeMapping TypeName="EvisionModel.CodeReason">
+              <MappingFragment StoreEntitySet="CodeReason">
+                <ScalarProperty Name="SysId" ColumnName="SysId" />
+                <ScalarProperty Name="Vender" ColumnName="Vender" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ReasonCode" ColumnName="ReasonCode" />
+                <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+                <ScalarProperty Name="AllowShip" ColumnName="AllowShip" />
+                <ScalarProperty Name="ProcessType" ColumnName="ProcessType" />
+                <ScalarProperty Name="EngDesc" ColumnName="EngDesc" />
+                <ScalarProperty Name="ChtDesc" ColumnName="ChtDesc" />
+                <ScalarProperty Name="ChsDesc" ColumnName="ChsDesc" />
+                <ScalarProperty Name="Duty" ColumnName="Duty" />
+                <ScalarProperty Name="Outsourcing" ColumnName="Outsourcing" />
+                <ScalarProperty Name="DefaultUsed" ColumnName="DefaultUsed" />
+                <ScalarProperty Name="DefaultEcn" ColumnName="DefaultEcn" />
+                <ScalarProperty Name="RequireRemark" ColumnName="RequireRemark" />
+                <ScalarProperty Name="RequireRelabel" ColumnName="RequireRelabel" />
+                <ScalarProperty Name="RequireSwapInfo" ColumnName="RequireSwapInfo" />
+                <ScalarProperty Name="RequireCustSn" ColumnName="RequireCustSn" />
+                <ScalarProperty Name="RequireMfgSn" ColumnName="RequireMfgSn" />
+                <ScalarProperty Name="RequireBios" ColumnName="RequireBios" />
+                <ScalarProperty Name="RequierAttn" ColumnName="RequierAttn" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="ModiDate" ColumnName="ModiDate" />
+                <ScalarProperty Name="ModiUser" ColumnName="ModiUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserId">
+            <EntityTypeMapping TypeName="EvisionModel.UserId">
+              <MappingFragment StoreEntitySet="UserId">
+                <ScalarProperty Name="SysId" ColumnName="SysId" />
+                <ScalarProperty Name="UserId1" ColumnName="UserId" />
+                <ScalarProperty Name="EngName" ColumnName="EngName" />
+                <ScalarProperty Name="ChtName" ColumnName="ChtName" />
+                <ScalarProperty Name="ChsName" ColumnName="ChsName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="ModiDate" ColumnName="ModiDate" />
+                <ScalarProperty Name="ModiUser" ColumnName="ModiUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSystem">
+            <EntityTypeMapping TypeName="EvisionModel.UserSystem">
+              <MappingFragment StoreEntitySet="UserSystem">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="System" ColumnName="System" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="ModiDate" ColumnName="ModiDate" />
+                <ScalarProperty Name="ModiUser" ColumnName="ModiUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

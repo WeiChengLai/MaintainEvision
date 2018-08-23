@@ -1,0 +1,193 @@
+﻿@model MaintainEvision.Models.CodeReason
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CodeReason</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SysId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SysId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AllowShip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllowShip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcessType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcessType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EngDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChtDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChtDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChsDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChsDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Outsourcing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Outsourcing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DefaultUsed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DefaultUsed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DefaultEcn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DefaultEcn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequireRemark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequireRemark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequireRelabel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequireRelabel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequireSwapInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequireSwapInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequireCustSn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequireCustSn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequireMfgSn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequireMfgSn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequireBios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequireBios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequierAttn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequierAttn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModiDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModiDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModiUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModiUser)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
