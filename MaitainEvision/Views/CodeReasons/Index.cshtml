@@ -18,7 +18,16 @@
             @Html.DisplayNameFor(model => model.SysId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AllowShip)
+            @Html.DisplayNameFor(model => model.Vender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReasonCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeType)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProcessType)
@@ -33,52 +42,13 @@
             @Html.DisplayNameFor(model => model.ChsDesc)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Duty)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Outsourcing)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DefaultUsed)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DefaultEcn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequireRemark)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequireRelabel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequireSwapInfo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequireCustSn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequireMfgSn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequireBios)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequierAttn)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreateDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreateUser)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModiDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModiUser)
+            @Html.DisplayNameFor(model => model.CreateDate)
         </th>
         <th></th>
     </tr>
@@ -90,7 +60,16 @@
                 @Html.DisplayFor(modelItem => item.SysId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AllowShip)
+                @Html.DisplayFor(modelItem => item.Vender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReasonCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProcessType)
@@ -105,57 +84,19 @@
                 @Html.DisplayFor(modelItem => item.ChsDesc)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Duty)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Outsourcing)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DefaultUsed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DefaultEcn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequireRemark)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequireRelabel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequireSwapInfo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequireCustSn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequireMfgSn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequireBios)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequierAttn)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreateUser)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ModiDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModiUser)
+                @Html.DisplayFor(modelItem => item.CreateDate)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { id = item.SysId })
+                @*@Html.ActionLink("Delete", "Delete", new { Vender = item.Vender, ProductType = item.ProcessType, ReasonCode = item.ReasonCode, CodeType = item.ReasonCode })*@
             </td>
         </tr>
     }

@@ -32,7 +32,7 @@ namespace MaintainEvision.Models
 
         [StringLength(10, ErrorMessage="欄位長度不得大於 10 個字元")]
         [Required]
-        public bool AllowShip { get; set; }
+        public string AllowShip { get; set; }
         
         [StringLength(20, ErrorMessage="欄位長度不得大於 20 個字元")]
         public string ProcessType { get; set; }

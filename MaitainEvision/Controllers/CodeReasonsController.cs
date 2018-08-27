@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MaintainEvision.Models;
 using X.PagedList;
+using MaintainEvision.ViewModel;
 
 namespace MaintainEvision.Controllers
 {
@@ -18,11 +19,6 @@ namespace MaintainEvision.Controllers
         // GET: CodeReasons/Create
         public ActionResult Create()
         {
-            var list = new List<SelectListItem>()
-                { new SelectListItem() { Text = "Y", Value = "Y", Selected = true }
-                , new SelectListItem() { Text = "N", Value = "N", Selected = false } };
-            ViewBag.Drop = list;
-
             return View();
         }
 
@@ -31,29 +27,54 @@ namespace MaintainEvision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SysId,Vender,ProductType,ReasonCode,CodeType,AllowShip,ProcessType,EngDesc,ChtDesc,ChsDesc,Duty,Outsourcing,DefaultUsed,DefaultEcn,RequireRemark,RequireRelabel,RequireSwapInfo,RequireCustSn,RequireMfgSn,RequireBios,RequierAttn,Active,CreateDate,CreateUser,ModiDate,ModiUser")] CodeReason codeReason)
+        public ActionResult Create([Bind(Include = "Vender,ProductType,ReasonCode,CodeType,AllowShip,ProcessType,EngDesc,ChtDesc,ChsDesc,Duty,Outsourcing,DefaultUsed,DefaultEcn,RequireRemark,RequireRelabel,RequireSwapInfo,RequireCustSn,RequireMfgSn,RequireBios,RequierAttn")] CodeReasonCreateViewModel codeReasonViewModel)
         {
-            codeReason.Active = "Y";
-            codeReason.CreateDate = DateTime.Now;
-            codeReason.CreateUser = "AcctonJu";
             if (ModelState.IsValid)
             {
+                CodeReason codeReason = new CodeReason()
+                {
+                    Vender = codeReasonViewModel.Vender,
+                    ProductType = codeReasonViewModel.ProductType,
+                    ReasonCode = codeReasonViewModel.ReasonCode,
+                    CodeType = codeReasonViewModel.CodeType,
+                    AllowShip = codeReasonViewModel.AllowShip,
+                    ProcessType = codeReasonViewModel.ProcessType,
+                    EngDesc = codeReasonViewModel.EngDesc,
+                    ChtDesc = codeReasonViewModel.ChsDesc,
+                    ChsDesc = codeReasonViewModel.ChsDesc,
+                    Duty = codeReasonViewModel.Duty,
+                    Outsourcing = codeReasonViewModel.Outsourcing,
+                    DefaultUsed = codeReasonViewModel.DefaultUsed,
+                    DefaultEcn = codeReasonViewModel.DefaultEcn,
+                    RequireRemark = codeReasonViewModel.RequireRemark,
+                    RequireRelabel = codeReasonViewModel.RequireRelabel,
+                    RequireSwapInfo = codeReasonViewModel.RequireSwapInfo,
+                    RequireCustSn = codeReasonViewModel.RequireCustSn,
+                    RequireMfgSn = codeReasonViewModel.RequireMfgSn,
+                    RequireBios = codeReasonViewModel.RequireBios,
+                    RequierAttn = codeReasonViewModel.RequierAttn,
+                    Active = "Y",
+                    CreateDate = DateTime.Now,
+                    CreateUser = "AcctonJu"
+                };
+
                 db.CodeReason.Add(codeReason);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View();
         }
 
         // GET: CodeReasons/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CodeReason codeReason = db.CodeReason.Find(id);
+            CodeReason codeReason = db.CodeReason
+                .Where(p => p.SysId == id)
+                .FirstOrDefault();
             if (codeReason == null)
             {
                 return HttpNotFound();
@@ -64,9 +85,11 @@ namespace MaintainEvision.Controllers
         // POST: CodeReasons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int? id)
         {
-            CodeReason codeReason = db.CodeReason.Find(id);
+            CodeReason codeReason = db.CodeReason
+                .Where(p => p.SysId == id)
+                .FirstOrDefault();
             db.CodeReason.Remove(codeReason);
             db.SaveChanges();
             return RedirectToAction("Index");
